@@ -1,54 +1,57 @@
 print("Signup")
-print("*"*8)
-empName= input("Enter Your Name \n")
-empEmail= input("Enter Your Email \n")
-empPass= input("Enter Your Password\n")
-empContact= input("Enter Your Contact \n")
+print("*" * 8)
 
-
+# User Signup
+empName = input("Enter Your Name: ")
+empEmail = input("Enter Your Email: ")
+empPass = input("Enter Your Password: ")
+empContact = input("Enter Your Contact: ")
 
 print("Account Successfully Created")
 
+# User Login
+empEmaiLogin = input("Enter Your Login Email: ")
+empPassLogin = input("Enter Your Login Password: ")
 
-empEmaiLogin= input("Enter Your Login Email \n")
-empPassLogin= input("Enter Your Login Password\n")
-
-if(empEmail==empEmaiLogin) and (empPass==empPassLogin):
-    print("Account SuccessFully Login")
-
-
-    num = int(input("Enter Your Number"))
-    if num%2==0:
+if (empEmail == empEmaiLogin) and (empPass == empPassLogin):
+    print("Account Successfully Logged In")
+    
+    # Even or Odd Number Check
+    num = int(input("Enter Your Number: "))
+    if num % 2 == 0:
         print("Even")
     else:
-        print("odd")
-
-    year = int(input("Enter Your Year"))
-    if year%4==0:
-        print("Is leap Year")
+        print("Odd")
+    
+    # Leap Year Check
+    year = int(input("Enter Your Year: "))
+    if year % 4 == 0:
+        print("Is a Leap Year")
     else:
-        print("is not a leap Year")
-
-    eng= float(input("Enter Your Eng Marks "))
-    math= float(input("Enter Your Math Marks "))
-    urdu= float(input("Enter Your Urdu Marks "))
-    obtainedMarks = eng+math+urdu
-    percentage= (obtainedMarks/300)*100
-    print("Obtained Marks ", obtainedMarks)
-    print("Percentage ", percentage)
-    if percentage<=100 and percentage>=80:
-        print("grade A1")
-    elif percentage<=79 and percentage>=70:
-        print("grade A")
-    elif percentage<=69 and percentage>=60:
-        print("grade B")
-    elif percentage<=59 and percentage>=50:
-        print("grade C")
-    elif percentage<=49 and percentage>=40:
-        print("grade D")
+        print("Is Not a Leap Year")
+    
+    # Marks Calculation
+    eng = float(input("Enter Your English Marks: "))
+    math = float(input("Enter Your Math Marks: "))
+    urdu = float(input("Enter Your Urdu Marks: "))
+    obtainedMarks = eng + math + urdu
+    percentage = (obtainedMarks / 300) * 100
+    
+    print("Obtained Marks:", obtainedMarks)
+    print("Percentage:", percentage)
+    
+    # Grade Evaluation
+    if 100 >= percentage >= 80:
+        print("Grade: A1")
+    elif 79 >= percentage >= 70:
+        print("Grade: A")
+    elif 69 >= percentage >= 60:
+        print("Grade: B")
+    elif 59 >= percentage >= 50:
+        print("Grade: C")
+    elif 49 >= percentage >= 40:
+        print("Grade: D")
     else:
         print("IU Jaien")
-
-
 else:
-    print("Incorrect Email Or Pass")
+    print("Incorrect Email Or Password")
