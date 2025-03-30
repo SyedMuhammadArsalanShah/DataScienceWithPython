@@ -29,6 +29,17 @@ def get_chapters(bookslug):
         print("Invalid Surah number or API error.")
 
 
+# Function to get Ayahs from a specific Surah
+def get_hadiths(bookslug, chapter):
+    response = requests.get(f"{BASE_URL}/hadiths?apiKey={API_KEY}&book={bookslug}&chapter={chapter}&paginate=100000")
+    if response.status_code == 200:
+        hadiths = response.json()["hadiths"]['data']
+        for hadith in hadiths:
+            print(f"{hadith['hadithNumber']}. {hadith['hadithUrdu']}. {hadith['hadithEnglish']}")
+    else:
+        print("Invalid Surah number or API error.")
+
+
 
 
 # Main menu
@@ -37,6 +48,7 @@ def main():
         print("\nQuran Console App")
         print("1. List Books")
         print("2. Get  Chapters Of Hadith")
+        print("3. Get  Hadith")
         print("4. Exit")
         choice = input("Enter your choice: ")
 
@@ -46,7 +58,9 @@ def main():
             chapter = input("Enter Chapter number: ")
             get_chapters(chapter)
         elif choice == "3":
-            print("coming soon ........")
+            book = input("Enter BookSlug: ")
+            chapter = input("Enter Chapter number: ")
+            get_hadiths(bookslug=book,chapter=chapter)
         elif choice == "4":
             print("Exiting Hadith Console App. Goodbye!")
             break
